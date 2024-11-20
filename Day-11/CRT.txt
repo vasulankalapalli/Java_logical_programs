@@ -1,0 +1,73 @@
+package crt;
+
+import java.util.*;
+public class student {
+
+	public static void main(String[] args) {
+		ArrayList<String> student=new ArrayList();
+		Scanner sc=new Scanner(System.in);
+		int choice;
+		String sname;
+		do
+		{
+		System.out.println("1.Add Student");
+		System.out.println("2.Display All Students");
+		System.out.println("3.Delete Student");
+		System.out.println("4.Search Student");
+		System.out.println("5.Update Student");
+		
+		System.out.println("Enter you choice:");
+		choice=sc.nextInt();
+		
+		switch(choice)
+		{
+		case 1:
+		    System.out.println("Enter student Name:");
+		    sname=sc.next();
+		    student.add(sname);
+		    System.out.println("Student Add Successfully");
+		    break;
+		case 2:
+			System.out.println("All students List is:"+student);
+			break;
+		case 3:
+			System.out.println("Enter Student Name to delete:");
+			sname=sc.next();
+			student.remove(sname);
+			System.out.println("Student Remove Successfully");
+			break;
+		case 4:
+			System.out.println("Enter Student Name:");
+			sname=sc.next();
+			if(student.contains(sname))
+			{
+				System.out.println("Student Name is Avilable in List");
+			}
+			else
+			{
+				System.out.println("Student Name is Not Found");
+			}
+			break;
+		case 5:
+			System.out.println("Enter Student Name:");
+			sname=sc.next();
+			if(student.contains(sname)) 
+			{
+			int index=student.indexOf(sname);
+			System.out.println("Enter Student Name");
+			sname=sc.next();
+			student.set(index, sname);
+			System.out.println("Student Update is Successfull");
+			}
+			else
+			{
+				System.out.println("Student Name is Not Found");
+			}
+			break;
+			default:
+				System.out.println("Invalid Option");
+		}
+		}
+		while(choice<6);
+	}
+}
